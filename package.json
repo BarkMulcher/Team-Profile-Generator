@@ -1,5 +1,19 @@
 {
   "dependencies": {
-    "bulma": "^0.9.4"
-  }
+    "bulma": "^0.9.4",
+    "inquirer": "^8.2.4"
+  },
+  "name": "team-profile-generator",
+  "description": "User Story",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
