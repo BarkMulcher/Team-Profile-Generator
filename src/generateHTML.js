@@ -6,7 +6,7 @@
             <header class="card-header">
                 <div class="has-text-centered">
                     <figure class="image is-128x128">
-                        <img class="is-rounded" src="./images/kermit.jpg">
+                        <img class="is-rounded" src="../dist/images/kermit.jpg">
                     </figure>
                 </div>
             </header>
@@ -48,7 +48,7 @@
             <header class="card-header">
                 <div class="has-text-centered">
                     <figure class="image is-128x128">
-                        <img class="is-rounded" src="./images/cowboy.jpg">
+                        <img class="is-rounded" src="./dist/images/cowboy.jpg">
                     </figure>
                 </div>
             </header>
@@ -90,7 +90,7 @@
             <header class="card-header">
                 <div class="has-text-centered">
                     <figure class="image is-128x128">
-                        <img class="is-rounded" src="./images/steve.jpg">
+                        <img class="is-rounded" src="../dist/images/steve.jpg">
                     </figure>
                     </div>
             </header>
