@@ -1,4 +1,4 @@
-
+// function to fill in manager info and base HTML
     const managerCard = manager => {
         return `
         <div class="card m-1 card-equal-height has-background-grey-light">
@@ -40,7 +40,7 @@
 
     }
 
-    // create engineer card
+// function to fill in engineer info and base HTML
     const engineerCard = engineer => {
         return `
     <div class="card m-1 card-equal-height has-background-grey-light">
@@ -80,10 +80,9 @@
     </div>
     `;
 
-        // employeeArray.push(engineerHTML);
     }
 
-    // create intern card
+// function to fill in "intern" info and base HTML
     const internCard = intern => {
         return `
     <div class="card m-1 card-equal-height has-background-grey-light">
@@ -123,10 +122,9 @@
     </div>
     `;
 
-        // employeeArray.push(internHTML);
     }
 
-
+// function to filter inputs by role
 const generateTeamHTML = teamResult => {
     let employeeHTML = [];
 
@@ -147,36 +145,12 @@ const generateTeamHTML = teamResult => {
     const  mergedTeam = employeeHTML.join(''); 
     return generateTeamPage(mergedTeam); 
 
-    // for (let i = 0; i < teamResult.length; i++) {
-
-    //     if (teamResult[i].getRole() === 'Manager') {
-    //         generateManager(teamResult[i]);
-
-    //         // employeeArray.push(managerCard);
-    //     }
-
-    //     if (teamResult[i].getRole() === 'Engineer') {
-    //         generateEngineer(teamResult[i]);
-
-    //         // employeeArray.push(engineerCard);
-    //     }
-
-    //     if (teamResult[i].getRole() === 'Intern') {
-    //         generateIntern(teamResult[i]);
-
-    //         // employeeArray.push(internCard);
-    //     }
-
-    //     return employeeHTML;
+ 
     };
 
-    // const employeeInfo = employeeArray.join('');
-
-    // generateTeamPage(employeeInfo);
 
 
-
-
+// function to define page HTML
 const generateTeamPage = mergedTeam => {
     return `
     <!DOCTYPE html>

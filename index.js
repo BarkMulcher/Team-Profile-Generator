@@ -1,20 +1,20 @@
 
-
+// import modules
 const fs = require('fs');
 const inquirer = require('inquirer');
-
+// import classes
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const { off } = require('process');
 const path = require('path');
-
+// link to HTML generation file
 const generateTeamHTML = require('./src/generateHTML');
 // resulting array
 const teamResult = [];
 
 
-// manager prompts: 
+// prompts to add employees
 const addEmployee = () => {
     inquirer.prompt([
         {
@@ -186,12 +186,14 @@ const addEmployee = () => {
                 return true;
             }
         },
+        // assign properties to a variable
     ]).then(employeeData => {
         const { role, name, id, email, github, school, officeNumber } = employeeData;
         let manager;
         let engineer;
         let intern;
 
+        // adding employees to classes
         if (role === "Manager") {
             manager = new Manager(name, id, email, officeNumber)
             console.log(manager);
@@ -212,7 +214,7 @@ const addEmployee = () => {
 
             teamResult.push(intern);
             addEmployee();
-
+            // calling file writing function
         } else if (role === `I am finished.`) {
             writeToFile('./dist/team.html', generateTeamHTML(teamResult));
         };
@@ -220,6 +222,7 @@ const addEmployee = () => {
 
 };
 
+// file creation function
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
@@ -232,9 +235,11 @@ const writeToFile = (fileName, data) => {
     )
 };
 
+// initialization function
 const init = () => {
     addEmployee()
     }
 
+// call init function
 init();
 
