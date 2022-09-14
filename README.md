@@ -41,7 +41,7 @@
   Open a node at index.js and follow the prompts. You will be presented with a functional HTML file with bulma styling that you can launch and use immediately.
 
   ## Technologies Used
-  HTML,CSS,JavaScript,Node.JS
+  HTML, CSS, JavaScript, Node.JS, Bulma
 
   ## Credits
  N/A
