@@ -1,47 +1,48 @@
-// create manager card
-const generateManager = (data) => {
-    return `
-    <div class="card m-1 card-equal-height has-background-grey-light">
-    <div class="column is-narrow">
-        <header class="card-header">
-            <div class="has-text-centered">
-                <figure class="image is-128x128">
-                    <img class="is-rounded" src="./images/kermit.jpg">
-                </figure>
-            </div>
-        </header>
-        <h5 class="title is-4 has-text-centered">
-            ${data.mgrName}
-        </h5>
-        <p class="pl-6 subtitle is-5 has-text-centered">
-            Manager
-        </p>
-        <div class="card-content">
-            <div class="box">
-                <p>
-                    ID: ${data.mgrId}
-                </p>
-            </div>
-            <div class="box">
-                <p>
-                    Email: <br>
-                    <a href="mailto:${data.mgrEmail}">${data.mgrEmail}</a>
-                </p>
-            </div>
-            <div class="box">
-                <p>
-                    Office #: ${data.mgrOfficeNumber}
-                </p>
+
+    const managerCard = manager => {
+        return `
+        <div class="card m-1 card-equal-height has-background-grey-light">
+        <div class="column is-narrow">
+            <header class="card-header">
+                <div class="has-text-centered">
+                    <figure class="image is-128x128">
+                        <img class="is-rounded" src="./images/kermit.jpg">
+                    </figure>
+                </div>
+            </header>
+            <h5 class="title is-4 has-text-centered">
+                ${manager.name}
+            </h5>
+            <p class="pl-6 subtitle is-5 has-text-centered">
+                Manager
+            </p>
+            <div class="card-content">
+                <div class="box">
+                    <p>
+                        ID: ${manager.id}
+                    </p>
+                </div>
+                <div class="box">
+                    <p>
+                        Email: <br>
+                        <a href="mailto:${manager.email}">${manager.email}</a>
+                    </p>
+                </div>
+                <div class="box">
+                    <p>
+                        Office #: ${manager.officeNumber}
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-`;
-}
+    `;
 
-// create engineer card
-const generateEngineer = (data) => {
-    return `
+    }
+
+    // create engineer card
+    const engineerCard = engineer => {
+        return `
     <div class="card m-1 card-equal-height has-background-grey-light">
         <div class="column is-narrow">
             <header class="card-header">
@@ -52,7 +53,7 @@ const generateEngineer = (data) => {
                 </div>
             </header>
             <h5 class="title is-4 has-text-centered">
-                ${data.engineer.name}
+                ${engineer.name}
             </h5>
             <p class="pl-6 subtitle is-5 has-text-centered">
                 Engineer
@@ -60,28 +61,31 @@ const generateEngineer = (data) => {
             <div class="card-content">
                 <div class="box">
                     <p>
-                        ID: ${data.engineer.id}
+                        ID: ${engineer.id}
                     </p>
                 </div>
             </div>
             <div class="box">
                 <p>Email: <br>
-                    <a href="mailto:${data.engineer.email}">${data.engineer.email}</a>
+                    <a href="mailto:${engineer.email}">${engineer.email}</a>
                 </p>
             </div>
             <div class="box">
                 <p>
-                    Github: ${data.engineer.github}
+                    Github: <br>
+                    <a target="_blank" href="https://github.com/${engineer.github}">${engineer.github}</a>
                 </p>
             </div>
         </div>
     </div>
-    `
-}
+    `;
 
-// create intern card
-const generateIntern = (data) => {
-    return `
+        // employeeArray.push(engineerHTML);
+    }
+
+    // create intern card
+    const internCard = intern => {
+        return `
     <div class="card m-1 card-equal-height has-background-grey-light">
         <div class="column is-narrow">
             <header class="card-header">
@@ -92,68 +96,88 @@ const generateIntern = (data) => {
                     </div>
             </header>
             <h5 class="title is-4 has-text-centered">
-                "${data.intern.name}"
+                "${intern.name}"
             </h5>
             <p class="pl-6 subtitle is-5 has-text-centered">
-                Intern
+                "Intern"
             </p>
             <div class="card-content">
                 <div class="box">
                     <p>
-                        ID: ${data.intern.id}
+                        ID: ${intern.id}
                     </p>
                 </div>
                 <div class="box">
                     <p>
                     Email: <br>
-                    <a href="mailto:${data.intern.email}">${data.intern.email}</a>
+                    <a href="mailto:${intern.email}">${intern.email}</a>
                 </div>
                 <div class="box">
                     <p>
                     Institution: <br>
-                    ${data.intern.school}
+                    ${intern.school}
                     </p>
                 </div>
             </div>
         </div>
     </div>
     `;
-}
 
-const generateHTML = (data) => {
-
-    employeeArray = [];
-
-    for (i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole();
-
-    if (role === 'Manager') {
-        const managerCard = generateManager(employee);
-
-        employeeArray.push(managerCard);
+        // employeeArray.push(internHTML);
     }
 
-    if (role === 'Engineer') {
-        const engineerCard = generateEngineer(employee);
 
-        employeeArray.push(engineerCard);
+const generateTeamHTML = teamResult => {
+    let employeeHTML = [];
+
+    for (let i = 0; teamResult.length>i; i++){ 
+        const role = teamResult[i].getRole();
+
+
+        if (role === 'Manager'){ 
+            employeeHTML.push(managerCard(teamResult[i]));
+        }
+        if (role === 'Engineer'){ 
+            employeeHTML.push(engineerCard(teamResult[i]));
+        }
+        if (role === 'Intern'){ 
+            employeeHTML.push(internCard(teamResult[i]));
+        }
     }
+    const  mergedTeam = employeeHTML.join(''); 
+    return generateTeamPage(mergedTeam); 
 
-    if (role === 'Intern') {
-        const internCard = generateIntern(employee);
+    // for (let i = 0; i < teamResult.length; i++) {
 
-        employeeArray.push(internCard);
-    }
+    //     if (teamResult[i].getRole() === 'Manager') {
+    //         generateManager(teamResult[i]);
+
+    //         // employeeArray.push(managerCard);
+    //     }
+
+    //     if (teamResult[i].getRole() === 'Engineer') {
+    //         generateEngineer(teamResult[i]);
+
+    //         // employeeArray.push(engineerCard);
+    //     }
+
+    //     if (teamResult[i].getRole() === 'Intern') {
+    //         generateIntern(teamResult[i]);
+
+    //         // employeeArray.push(internCard);
+    //     }
+
+    //     return employeeHTML;
     };
 
-    const employeeInfo = employeeArray.join('');
+    // const employeeInfo = employeeArray.join('');
 
-    const createTeam = generateTeamHTML(employeeInfo);
-    return createTeam;
-}
+    // generateTeamPage(employeeInfo);
 
-const generateTeamHTML = (employeeInfo) => {
+
+
+
+const generateTeamPage = mergedTeam => {
     return `
     <!DOCTYPE html>
     <html>
@@ -170,7 +194,7 @@ const generateTeamHTML = (employeeInfo) => {
             <div class="container">
                 <div class="columns is-mobile is-multiline is-centered">
                 <!-- My Team -->
-                ${employeeInfo}
+                ${mergedTeam}
 
     </div>
     </section>
@@ -179,4 +203,6 @@ const generateTeamHTML = (employeeInfo) => {
     </html>`;
 }
 
-module.exports = generateHTML;
+
+
+module.exports = generateTeamHTML;
