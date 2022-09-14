@@ -29,7 +29,7 @@
   Clone the repository, run `npm init`, `npm i`, `npm i jest`, `npm i inquirer@8.2.4`. 
 
   ## Demonstration
-  [!]()
+  [Link to YouTube demonstration video](https://youtu.be/l2f5SXDPp2Y)
 
   ## Contributing
   Please email me.
@@ -55,4 +55,4 @@
   ## Contact
   * Email: lucas.c.haskell@gmail.com
   * Phone: N/A
-  * GitHub: N/A
+  * GitHub: ```this.GitHub```
