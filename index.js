@@ -214,11 +214,11 @@ const addEmployee = () => {
             addEmployee();
 
         } else if (role === `I am finished.`) {
-            writeToFile('./dist/team1.html', generateTeamHTML(teamResult));
-        }
+            writeToFile('./dist/team.html', generateTeamHTML(teamResult));
+        };
     })
 
-}
+};
 
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) => {
@@ -227,22 +227,14 @@ const writeToFile = (fileName, data) => {
             return; 
         } else {
             console.log('success!');
-        }
+        };
     }
-    );
+    )
 };
 
 const init = () => {
     addEmployee()
-        // .then(teamResult => {
-        //     return generateTeamHTML(teamResult);
-        // })
-        // .then((results) => {
-        //     return writeToFile(results);
-        // })
-        // .catch((err) => {
-        //     console.log(err);
-        // })
     }
 
 init();
+
